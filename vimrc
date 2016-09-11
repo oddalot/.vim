@@ -16,7 +16,10 @@ let mapleader = ","   " Remap the leader key to the comma key
 set laststatus=2      " Run vim-airline
 set iskeyword+=-      " Set word definition to include dash
 
-" Automatically enter paste mode when pasting
+" start nerdtree when vim starts
+autocmd VimEnter * NERDTree | wincmd p
+
+" automatically enter paste mode when pasting
 function! WrapForTmux(s)
   if !exists('$TMUX')
     return a:s
