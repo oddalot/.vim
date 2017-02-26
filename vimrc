@@ -69,10 +69,15 @@ let g:ctrlp_working_path_mode = 'r'
 " ctrlp ignore settings
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
 
-" Setting the Syntastic plugin default checkers
-let g:syntastic_html_checkers = ['w3']
-let g:syntastic_javascript_checkers = ['jshint']
-let g:syntastic_scss_checkers = ['scss_lint']
+" Syntastic defaults
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
 
 "" remap quickfix open horizontal split
 let g:qfenter_hopen_map = ['<c-x>']
