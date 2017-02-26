@@ -42,10 +42,6 @@ endfunction
 
 inoremap <special> <expr> <Esc>[200~ XTermPasteBegin()
 
-"set relative line numbers by default
-set number
-set relativenumber
-
 " function to toggle line numbers
 function! NumberToggle()
 if(&relativenumber == 1)
@@ -56,6 +52,10 @@ set number
 set relativenumber
 endif
 endfunc
+
+" Use vim hard mode plugin by default
+autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
+
 
 " Leader l - toggles relative line number mode
 nnoremap <Leader>l :call NumberToggle()<CR>
