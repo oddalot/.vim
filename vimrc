@@ -11,7 +11,7 @@ set expandtab         " Enable tab in insert mode
 set number            " Show line numbers
 set hlsearch          " Hightlight search maches
 set t_Co=256          " Set to 256 colors
-colorscheme default   " Enable colorscheme
+colorscheme elflord   " Enable colorscheme
 let mapleader = ","   " Remap the leader key to the comma key
 set laststatus=2      " Run vim-airline
 set iskeyword+=-      " Set word definition to include dash
@@ -41,6 +41,10 @@ function! XTermPasteBegin()
 endfunction
 
 inoremap <special> <expr> <Esc>[200~ XTermPasteBegin()
+
+"set relative line numbers by default
+set number
+set relativenumber
 
 " function to toggle line numbers
 function! NumberToggle()
