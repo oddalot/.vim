@@ -9,6 +9,7 @@ set tabstop=2         " Enable tabstop, tab counts for 2 columns
 set shiftwidth=2      " Enable reindent as two spaces
 set expandtab         " Enable tab in insert mode
 set number            " Show line numbers
+set autoindent        " Enable autoindent
 set hlsearch          " Hightlight search maches
 set t_Co=256          " Set to 256 colors
 colorscheme elflord   " Enable colorscheme
@@ -68,6 +69,25 @@ let g:ctrlp_working_path_mode = 'r'
 
 " ctrlp ignore settings
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
+
+" The Silver Searcher
+if executable('ag')
+  " Use ag over grep
+  set grepprg=ag\ --nogroup\ --nocolor
+
+  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+
+  " ag is fast enough that CtrlP doesn't need to cache
+  let g:ctrlp_use_caching = 0
+endif
+
+" Use K to search for work under the cursor
+nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
+
+" bind \ (backward slash) to grep shortcut
+nnoremap \ :Ag<SPACE>
+command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
 
 " Syntastic defaults
 set statusline+=%#warningmsg#
