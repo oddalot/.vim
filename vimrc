@@ -101,3 +101,7 @@ let g:syntastic_check_on_wq = 0
 
 "" remap quickfix open horizontal split
 let g:qfenter_hopen_map = ['<c-x>']
+
+"" Save the swapfiles to a seperate location
+set backupdir=$TEMP//
+set directory=$TEMP//
