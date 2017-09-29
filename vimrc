@@ -20,6 +20,9 @@ set iskeyword+=-      " Set word definition to include dash
 " start nerdtree when vim starts
 autocmd VimEnter * NERDTree | wincmd p
 
+" show hidden fileds in the nerdtree explorer window
+let NERDTreeShowHidden=1
+
 " automatically enter paste mode when pasting
 function! WrapForTmux(s)
   if !exists('$TMUX')
