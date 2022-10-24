@@ -102,6 +102,9 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
+" Use new SnipMate parser
+let g:snipMate = { 'snippet_version' : 1 }
+
 "" remap quickfix open horizontal split
 let g:qfenter_hopen_map = ['<c-x>']
 
